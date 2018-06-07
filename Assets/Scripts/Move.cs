@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Class ofMoves to be recorded in linked list
-public class Move : MonoBehaviour {
+public class Move {
 
     int player;
     int position;
     int won;
     int boardSize;
 
-    // Constructor 
+    // Constructor default for end of game 
     public Move()
     {
         this.player = -1;
         this.position = -1;
-        this.won = -1;
+        this.won = 3;
         this.boardSize = 0;
     }
 
@@ -44,8 +44,26 @@ public class Move : MonoBehaviour {
     {
         won = winner;
     }
-	// Update is called once per frame
-	void Update () {
+
+    // Returns players Id num 
+    public int GetPlayer()
+    {
+        return this.player;
+    }
+
+    // Returns played Position 
+    public int GetPosition()
+    {
+        return this.position;
+    }
+
+    // Checks if the move won or Drew the game
+    public bool IsWon()
+    {
+        return (won == -1) ? false : true;
+    }
+    // Update is called once per frame
+    void Update () {
 		
 	}
 }

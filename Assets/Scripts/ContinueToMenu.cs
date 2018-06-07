@@ -8,7 +8,6 @@ public class ContinueToMenu : MonoBehaviour {
 
     public int scene;
 
-    // LoadSceneMode the main menu
 	public void LoadMainMenu()
     {
         SceneManager.LoadScene(scene);

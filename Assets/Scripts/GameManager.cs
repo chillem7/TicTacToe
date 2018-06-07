@@ -8,8 +8,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
     // singleton instance
     public static GameManager instance = null;
-    protected static List<Move> moves;
-    public static int savedToggle = 3;
+    private List<Move> moves;
+    private int savedToggle = 3;
 
     public void Awake()
     {
@@ -38,6 +38,33 @@ public class GameManager : MonoBehaviour {
     public void SetSavedToggle(int savedToggleNum)
     {
         savedToggle = savedToggleNum;
+    }
+
+    // Returns the Last game if incomplete
+    public List<Move> GetLastGame()
+    {
+        List<Move> lastGame = new List<Move>();
+        
+        foreach (var move in moves)
+        {
+            // Add Move to list
+            lastGame.Add(move);
+
+            // If a new game was started Clear the list and start adding again
+            if (move.IsWon())
+            {
+                lastGame.Clear();
+               
+            }
+            
+        }
+        return lastGame;
+          
+    }
+
+    public int GetSavedToggle()
+    {
+        return savedToggle;
     }
 
 	

@@ -17,7 +17,7 @@ public class Player : MonoBehaviour {
         DrodownValueChanged();
     }
 
-   public void DrodownValueChanged() 
+    public void DrodownValueChanged()
     {
         DropdownHelper dropdownHelper = gameObject.GetComponentInParent(typeof(DropdownHelper)) as DropdownHelper;
 
@@ -29,5 +29,4 @@ public class Player : MonoBehaviour {
     {
         return this;
     }
-
 }

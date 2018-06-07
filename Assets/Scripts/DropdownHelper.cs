@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class DropdownHelper : MonoBehaviour
 {
-    
+
     public Dropdown dropdown0;
     public Dropdown dropdown1;
     public Sprite[] symbols;
@@ -34,7 +34,7 @@ public class DropdownHelper : MonoBehaviour
             // Add to list
             symbolItems.Add(symbolOption);
         }
-        
+
         // Initializes the dropdowns and sets different values
         dropdown0.AddOptions(symbolItems);
         dropdown1.AddOptions(symbolItems);
@@ -48,7 +48,7 @@ public class DropdownHelper : MonoBehaviour
     {
         Dropdown secondDropdown = (dropdown0 == firstDropdown) ? dropdown1 : dropdown0;
         List<Dropdown.OptionData> optionDataList = new List<Dropdown.OptionData>();
-        string secondValueText= secondDropdown.options[secondDropdown.value].text;
+        string secondValueText = secondDropdown.options[secondDropdown.value].text;
         string firstValueText = firstDropdown.options[firstDropdown.value].text;
         int firstValue = 0;
 
@@ -72,7 +72,7 @@ public class DropdownHelper : MonoBehaviour
             secondDropdown.ClearOptions();
             secondDropdown.AddOptions(optionDataList);
             secondValueText = optionDataList[0].text;
-            
+
 
         }// if it was not change value to old value
         else
@@ -83,7 +83,7 @@ public class DropdownHelper : MonoBehaviour
 
             // Itterates through the new list to get the new index of the old oject
             for (int i = 0; i < optionDataList.Count; i++) //
-            { 
+            {
                 if (optionDataList[i].text == secondValueText)
                 {
                     //Sets the value in the new dropdown list
@@ -112,14 +112,14 @@ public class DropdownHelper : MonoBehaviour
                 optionDataList.Add(option);
                 tempFirstValue++;
             }
-            
+
         }
 
         // clear the dropdown options and add new list
-        firstDropdown.ClearOptions();       
-        firstDropdown.AddOptions (optionDataList);
+        firstDropdown.ClearOptions();
+        firstDropdown.AddOptions(optionDataList);
         firstDropdown.value = firstValue;
-        
+
 
     }
 
